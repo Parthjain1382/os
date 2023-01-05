@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<fcntl.h>
+int main()
+{
+int forked;
+forked=fork();
+printf("Hola People\n");
+wait();
+if(forked>0)
+{
+printf("Hello, I am the parent\n");
+printf("PARENT PID= %d\n",getpid());
+}
+else if(forked==0)
+{
+printf("Hello, I am the child\n");
+printf("CHILD PID =%d\n",getpid());
+printf("PARENT PID of this CHILD= %d\n",getppid());
+}
+else
+{
+printf("This is an ERROR CREATING PROCESS\n");
+}
+printf("Before Sleep\n");
+sleep(100);
+
+
+
+printf("After Sleep\n");
+return 0;
+}

@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+void main()
+{
+int fdc = creat("newFile.txt", 777);
+char bw[50],br[50];
+printf("Enter array size");
+int n;
+scanf("%d", &n);
+printf("Enter the elements");
+for(int i=0; i<n; i++)
+{
+scanf("%c", &bw[i]);
+}
+
+int fdw;
+fdw = write(fdc, bw, sizeof(bw));
+
+int fdo = open("newFile.txt", O_RDWR, 111);
+int fdr = read(fdo, br, sizeof(br));
+
+for(int i=0; i<n; i++)
+{
+printf("%c", br[i]);
+
+
+
+}
+close(fdo);
+
+}
